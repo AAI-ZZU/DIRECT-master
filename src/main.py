@@ -86,13 +86,7 @@ def parse_command(params, key, default):
 
 
 if __name__ == '__main__':
-    # params = deepcopy(sys.argv)
-    params = []
-    params.append("src/main.py")
-    params.append("--config=DIRECT")
-    params.append("--env-config=sc2")
-    params.append("with")
-    params.append("env_args.map_name=6h_vs_8z")
+    params = deepcopy(sys.argv)
 
     # Get the defaults from default.yaml
     with open(os.path.join(os.path.dirname(__file__), "config", "default.yaml"), "r") as f:
