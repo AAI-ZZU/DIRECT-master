@@ -9,7 +9,6 @@ import torch as th
 from utils.rl_utils import RunningMeanStd
 import numpy as np
 from modules.action_encoders.obs_reward_encoder import ObsRewardEncoder as action_encoder
-# from modules.intention_encoder.intention import IntentTransformerPredictor, IntentToActionMapper, TimeEncoder, TeammateSummarizer, AttentionPoolEncoder
 from modules.intention_encoder.intention import NextIntentionPredictor, IntentToActionMapper, AggIntent
 
 from components.epsilon_schedules import DecayThenFlatSchedule
@@ -129,7 +128,6 @@ class TMAC(BasicMAC):
         self.role_agent.load_state_dict(other_mac.role_agent.state_dict())
         self.intention_module.load_state_dict(other_mac.intention_module.state_dict())
         self.intent2act.load_state_dict(other_mac.intent2act.state_dict())
-        # self.agg_intent.load_state_dict(other_mac.agg_intent.state_dict())
         self.action_encoder.load_state_dict(other_mac.action_encoder.state_dict())
         self.action_repr = copy.deepcopy(other_mac.action_repr)
 
