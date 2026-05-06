@@ -107,7 +107,6 @@ class TLearner:
         start_beta = 0.1
         end_beta = 5
 
-        # 线性插值
         beta = start_beta + (end_beta - start_beta) * progress
         tot_loss = loss + beta * kl_ls
 
@@ -210,7 +209,7 @@ class TLearner:
     def save_models(self, path):
         self.mac.save_models(path)
         if self.mixer is not None:
-            th.save(self.mixer.state_dict(), "{}/mixer.th".format(path))  # role完的模型
+            th.save(self.mixer.state_dict(), "{}/mixer.th".format(path))
         th.save(self.optimiser.state_dict(), "{}/opt.th".format(path))
 
     def load_models(self, path):
